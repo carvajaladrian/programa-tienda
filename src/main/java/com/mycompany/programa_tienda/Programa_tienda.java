@@ -70,8 +70,9 @@ public class Programa_tienda {
     }
 
     // Método para confirmar la compra
-    static void confirmarCompra(double total) {
+    static void confirmarCompra(String correo, double total) {
         System.out.println("\n----- REPORTE DE COMPRA -----");
+        System.out.println("Correo: " + correo);
         System.out.println("Total pagado: $" + String.format("%.2f", total));
     }
 
@@ -94,8 +95,11 @@ public class Programa_tienda {
         System.out.println("\nSubtotal: $" + String.format("%.2f", subtotal));
         System.out.println("Impuesto (15%): $" + String.format("%.2f", subtotal * impuesto));
         System.out.println("TOTAL: $" + String.format("%.2f", totalConImpuesto));
+        
+        System.out.print("Ingrese su correo para confirmar la compra: ");
+        String correo = sc.nextLine();
 
-        confirmarCompra(totalConImpuesto);
+        confirmarCompra(correo, totalConImpuesto);
 
         // Vaciar carrito después del pago
         carrito.clear();
